@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro-Forum</title>
+
+    <!-- font-awesome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- tail & daisy link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- custom css -->
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+      .mulish{
+        font-family: "mulish", sans-serif;
+      }
+      .inter{
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+
+
+  </head>
+  <body class=" container mx-auto">
+    <!-- header area -->
+    <header class=" mx-32 ">
+      <!-- nav section  -->
+      <nav class="py-14">
+        <div class="navbar bg-base-100">
+          <div class="navbar-start">
+            <div class="dropdown">
+              <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
+                  />
+                </svg>
+              </div>
+              <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box"
+              >
+                <li>
+                  <a><i class="fa-solid fa-house text-xl"></i></a>
+                </li>
+                <li>
+                  <a><i class="fa-solid fa-pencil text-xl"></i></a>
+                </li>
+                <li>
+                  <a><i class="fa-solid fa-user-plus text-xl"></i></a>
+                </li>
+                <li>
+                  <a><i class="fa-regular fa-font-awesome text-xl"></i></a>
+                </li>
+              </ul>
+            </div>
+            <a class="btn btn-ghost text-xl"><img src="images/logo.png" alt=""></a>
+          </div>
+          <div class="navbar-end">
+            <div class="hidden lg:flex">
+              <ul class="menu menu-horizontal px-1 gap-5">
+                <li>
+                    <div class="tooltip bg-[#0307121A] w-full rounded-full py-3" data-tip="Home">
+                        <a class=""><i class="fa-solid fa-house text-xl"></i></a>
+                      </div>
+                </li>
+                <li>
+                    <div class="tooltip bg-[#0307121A] w-full rounded-full py-3" data-tip="Feedback">
+                        <a class=""><i class="fa-solid fa-pencil text-xl"></i></a>
+                      </div>
+                </li>
+                <li>
+                    <div class="tooltip bg-[#0307121A] w-full rounded-full py-3" data-tip="Users">
+                        <a class=""><i class="fa-solid fa-user-plus text-xl"></i></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="tooltip bg-[#0307121A] w-full rounded-full py-3" data-tip="Criteria">
+                        <a class=""><i class="fa-regular fa-font-awesome text-xl"></i></a>
+                    </div>
+                </li>
+              </ul>
+            </div>
+            <a
+              class="btn mulish font-bold text-xl bg-[#797DFC] text-white rounded-full px-8 ml-6 hover:bg-white hover:text-[#797DFC]"
+              >Sign In</a
+            >
+          </div>
+        </div>
+      </nav>
+
+      <!-- banner section -->
+      <section></section>
+    </header>
+
+    <!-- main & area -->
+    <main></main>
+
+    <!-- footer area  -->
+    <footer></footer>
+
+    <script src="jscript/script.js"></script>
+  </body>
+</html>
