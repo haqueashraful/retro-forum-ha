@@ -27,21 +27,19 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
 
-      .mulish{
+      .mulish {
         font-family: "mulish", sans-serif;
       }
-      .inter{
+      .inter {
         font-family: "Inter", sans-serif;
       }
     </style>
-
-
   </head>
-  <body class=" container mx-auto">
+  <body class="container mx-auto">
     <!-- header area -->
-    <header class=" mx-32 ">
+    <header class="lg:mx-28">
       <!-- nav section  -->
-      <nav class="py-14">
+      <nav class="py-5 lg:py-14">
         <div class="navbar bg-base-100">
           <div class="navbar-start">
             <div class="dropdown">
@@ -79,30 +77,46 @@
                 </li>
               </ul>
             </div>
-            <a class="btn btn-ghost text-xl"><img src="images/logo.png" alt=""></a>
+            <a class=""><img src="images/logo.png" alt="" /></a>
           </div>
           <div class="navbar-end">
             <div class="hidden lg:flex">
               <ul class="menu menu-horizontal px-1 gap-5">
                 <li>
-                    <div class="tooltip bg-[#0307121A] w-full rounded-full py-3" data-tip="Home">
-                        <a class=""><i class="fa-solid fa-house text-xl"></i></a>
-                      </div>
+                  <div
+                    class="tooltip bg-[#0307121A] w-full rounded-full py-3"
+                    data-tip="Home"
+                  >
+                    <a class=""><i class="fa-solid fa-house text-xl"></i></a>
+                  </div>
                 </li>
                 <li>
-                    <div class="tooltip bg-[#0307121A] w-full rounded-full py-3" data-tip="Feedback">
-                        <a class=""><i class="fa-solid fa-pencil text-xl"></i></a>
-                      </div>
+                  <div
+                    class="tooltip bg-[#0307121A] w-full rounded-full py-3"
+                    data-tip="Feedback"
+                  >
+                    <a class=""><i class="fa-solid fa-pencil text-xl"></i></a>
+                  </div>
                 </li>
                 <li>
-                    <div class="tooltip bg-[#0307121A] w-full rounded-full py-3" data-tip="Users">
-                        <a class=""><i class="fa-solid fa-user-plus text-xl"></i></a>
-                    </div>
+                  <div
+                    class="tooltip bg-[#0307121A] w-full rounded-full py-3"
+                    data-tip="Users"
+                  >
+                    <a class=""
+                      ><i class="fa-solid fa-user-plus text-xl"></i
+                    ></a>
+                  </div>
                 </li>
                 <li>
-                    <div class="tooltip bg-[#0307121A] w-full rounded-full py-3" data-tip="Criteria">
-                        <a class=""><i class="fa-regular fa-font-awesome text-xl"></i></a>
-                    </div>
+                  <div
+                    class="tooltip bg-[#0307121A] w-full rounded-full py-3"
+                    data-tip="Criteria"
+                  >
+                    <a class=""
+                      ><i class="fa-regular fa-font-awesome text-xl"></i
+                    ></a>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -115,7 +129,41 @@
       </nav>
 
       <!-- banner section -->
-      <section></section>
+      <section>
+        <div
+          class="bg-[#12132D] bg-[url('images/bgbanner.png')] bg-contain bg-no-repeat w-full bg-bottom p-3 lg:p-20 rounded-lg lg:rounded-3xl lg:flex justify-center gap-20 items-center"
+        >
+          <div class="space-y-2 lg:space-y-8 lg:w-1/2 w-full">
+            <h2 class="mulish text-4xl lg:text-6xl font-extrabold lg:font-black text-white lg:leading-[86px]">
+              Welcome to the <br />
+              <span
+                class="bg-gradient-to-r from-10% from-[#797DFC] to-[#494c7e] to-70% text-transparent bg-clip-text"
+                >ReTro</span
+              >
+              Forum
+            </h2>
+            <p class="text-[#FFFFFFCC] mulish text-xl font-medium">
+              Share your favorite opinion and win and wp forum coffee mug!
+            </p>
+            <label
+              class="input input-bordered h-auto flex items-center lg:gap-2 rounded-full"
+            >
+              <input type="text" class="grow lg:py-4 lg:px-2" placeholder="Search" />
+              <button
+                class="btn lg:px-8 rounded-3xl bg-[#797DFC] flex justify-center items-center text-xl text-white"
+              >
+                Search
+              </button>
+            </label>
+          </div>
+          <div class="bg-white p-5 lg:p-11 w-full lg:w-1/2 rounded-3xl space-y-2 mt-5 lg:mt-0">
+            <li class=" list-none flex justify-between items-center"><p class="mulish font-semibold text-black text-2xl">Registered Users</p><p class="mulish font-semibold text-black text-2xl">01</p></li>
+            <li class=" list-none flex justify-between items-center"><p class="mulish font-semibold text-black text-2xl">Forum </p><p class="mulish font-semibold text-black text-2xl">05</p></li>
+            <li class=" list-none flex justify-between items-center"><p class="mulish font-semibold text-black text-2xl">Topics</p><p class="mulish font-semibold text-black text-2xl">01</p></li>
+            <li class=" list-none flex justify-between items-center"><p class="mulish font-semibold text-black text-2xl">Replies</p><p class="mulish font-semibold text-black text-2xl">01</p></li>
+          </div>
+        </div>
+      </section>
     </header>
 
     <!-- main & area -->
