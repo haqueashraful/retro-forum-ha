@@ -84,7 +84,7 @@
               <ul class="menu menu-horizontal px-1 gap-5">
                 <li>
                   <div
-                    class="tooltip bg-[#0307121A] w-full rounded-full py-3"
+                    class="tooltip bg-[#0307121A] w-full rounded-full py-3 hover:bg-[#797DFC] hover:text-white"
                     data-tip="Home"
                   >
                     <a class=""><i class="fa-solid fa-house text-xl"></i></a>
@@ -92,7 +92,7 @@
                 </li>
                 <li>
                   <div
-                    class="tooltip bg-[#0307121A] w-full rounded-full py-3"
+                    class="tooltip bg-[#0307121A] w-full rounded-full py-3 hover:bg-[#797DFC] hover:text-white"
                     data-tip="Feedback"
                   >
                     <a class=""><i class="fa-solid fa-pencil text-xl"></i></a>
@@ -100,7 +100,7 @@
                 </li>
                 <li>
                   <div
-                    class="tooltip bg-[#0307121A] w-full rounded-full py-3"
+                    class="tooltip bg-[#0307121A] w-full rounded-full py-3 hover:bg-[#797DFC] hover:text-white"
                     data-tip="Users"
                   >
                     <a class=""
@@ -110,7 +110,7 @@
                 </li>
                 <li>
                   <div
-                    class="tooltip bg-[#0307121A] w-full rounded-full py-3"
+                    class="tooltip bg-[#0307121A] hover:bg-[#797DFC] hover:text-white w-full rounded-full py-3"
                     data-tip="Criteria"
                   >
                     <a class=""
@@ -131,7 +131,7 @@
       <!-- banner section -->
       <section>
         <div
-          class="bg-[#12132D] bg-[url('images/bgbanner.png')] bg-cover bg-no-repeat w-full bg-bottom p-3 lg:p-20 rounded-lg lg:rounded-3xl lg:flex justify-center gap-20 items-center"
+          class="bg-[#12132D] bg-[url('images/bgbanner.png')] bg-cover lg:bg-contain bg-no-repeat w-full bg-bottom p-3 md:p-10 lg:p-20 rounded-[32px] lg:rounded-3xl lg:flex md:flex justify-center gap-20 items-center"
         >
           <div class="space-y-2 lg:space-y-8 lg:w-1/2 w-full">
             <h2
@@ -139,7 +139,7 @@
             >
               Welcome to the <br />
               <span
-                class="bg-gradient-to-r from-10% from-[#797DFC] to-[#494c7e] to-70% text-transparent bg-clip-text"
+                class="bg-gradient-to-r from-10% from-[#797DFC] to-[#494c7e96] to-70% text-transparent bg-clip-text"
                 >ReTro</span
               >
               Forum
@@ -153,12 +153,12 @@
               <input
                 id="inputField"
                 type="text"
-                class="grow lg:py-4 lg:px-2"
+                class="grow lg:py-5 lg:pl-2"
                 placeholder="Search"
               />
               <button
                 id="searchBtn"
-                class="btn lg:px-8 rounded-3xl bg-[#797DFC] flex justify-center items-center text-xl text-white"
+                class="btn lg:px-8 rounded-3xl bg-[#797DFC] flex justify-center items-center text-xl text-white hover:bg-white hover:text-[#797DFC]"
               >
                 Search
               </button>
@@ -191,7 +191,7 @@
     </header>
 
     <!-- main & area -->
-    <main class="lg:mx-28 mt-12 lg:mt-24">
+    <main class="lg:mx-28  mt-12 lg:mt-24">
       <!-- lets discuss section -->
       <section>
         <div class="text-center mb-4 lg:mb-12">
@@ -206,13 +206,13 @@
         <div id="allPostLoader" class="hidden text-center">
           <span class="loading loading-dots loading-lg"></span>
         </div>
-        <section id="allPostArea" class="grid grid-cols-1 lg:grid-cols-5 w-full gap-6">
+        <section id="allPostArea" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 w-full md:gap-2 gap-6">
           <!-- left side -->
-          <section id="allPostSection" class="lg:col-span-3 text-center">
+          <section id="allPostSection" class="lg:col-span-3 md:col-span-2 text-center">
           </section>
 
           <!-- right side -->
-          <section class="lg:col-span-2 space-y-5">
+          <section class="lg:col-span-2 md:col-span-1 space-y-5">
             <div class="bg-[#12132D0D] rounded-3xl p-3 lg:p-6">
               <div class="flex justify-between items-center mb-4">
                 <h2 class="mulish text-xl font-bold text-black">Title</h2>
@@ -267,7 +267,7 @@
         <div id="CardLoader" class="hidden text-center">
           <span class="loading loading-dots loading-lg text-green-500"></span>
         </div>
-        <section id="cardSection" class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <section id="cardSection" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
           <!-- card div -->
          
