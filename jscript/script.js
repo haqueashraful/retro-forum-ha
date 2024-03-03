@@ -4,6 +4,7 @@ let count = 0;
 let allPostDiv = document.getElementById("allPostSection");
 const allPostLoader = document.getElementById("allPostLoader");
 const allPostArea = document.getElementById("allPostArea");
+const rightSide = document.getElementById("rightSide")
 
 // latest post section variable
 const cardSection = document.getElementById("cardSection");
@@ -208,6 +209,7 @@ searchBtn.addEventListener("click", async () => {
 
     console.log(data.posts);
     const allPosts = data.posts;
+    rightSide.classList.remove("hidden")
 
     if (allPosts.length > 0) {
       allPosts.forEach((post) => {
@@ -277,7 +279,6 @@ searchBtn.addEventListener("click", async () => {
         allPostDiv.appendChild(div);
       });
     } else {
-        const rightSide = document.getElementById("rightSide")
         rightSide.classList.add('hidden')
         const noPost = document.createElement("div");
         noPost.classList = "w-full col-span-5 mx-auto"
@@ -289,8 +290,6 @@ searchBtn.addEventListener("click", async () => {
                 `;
 
                 allPostDiv.appendChild(noPost)
-
-
     }
 
     setTimeout(() => {
