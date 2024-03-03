@@ -13,15 +13,15 @@ const cardLoader = document.getElementById("CardLoader");
 const titleContainer = document.getElementById("titleContainer");
 
 // input area
-const inputField = document.getElementById('inputField')
-const searchBtn = document.getElementById("searchBtn")
+const inputField = document.getElementById("inputField");
+const searchBtn = document.getElementById("searchBtn");
 
 const loadPost = async () => {
   try {
     // Display loader before fetching data
     isLoading = true;
     allPostLoader.classList.remove("hidden");
-    allPostArea.classList.add('hidden')
+    allPostArea.classList.add("hidden");
 
     const res = await fetch(
       "https://openapi.programming-hero.com/api/retro-forum/posts"
@@ -98,7 +98,7 @@ const loadPost = async () => {
     setTimeout(() => {
       isLoading = false;
       allPostLoader.classList.add("hidden");
-      allPostArea.classList.remove('hidden')
+      allPostArea.classList.remove("hidden");
     }, 2000);
   } catch (error) {
     console.error("Error fetching posts:", error);
@@ -114,7 +114,7 @@ const latestPost = async () => {
   console.log(latestData);
   isLoading = true;
   cardLoader.classList.remove("hidden");
-  cardSection.classList.add('hidden')
+  cardSection.classList.add("hidden");
 
   latestData.forEach((data) => {
     const { cover_image, profile_image, title, description } = data;
@@ -131,7 +131,9 @@ const latestPost = async () => {
         <div class="space-y-3">
           <div class="flex justify-start items-center">
             <i class="fa-regular fa-calendar"></i>
-            <p class="ml-2">${posted_date && posted_date || `No publish date`}</p>
+            <p class="ml-2">${
+              (posted_date && posted_date) || `No publish date`
+            }</p>
           </div>
           <h2 class="mulish font-extrabold text-lg text-black min-h-[56px]">
             ${title}
@@ -159,7 +161,7 @@ const latestPost = async () => {
   setTimeout(() => {
     isLoading = false;
     cardLoader.classList.add("hidden");
-    cardSection.classList.remove('hidden')
+    cardSection.classList.remove("hidden");
   }, 2000);
 };
 
@@ -175,10 +177,10 @@ const handleRead = (title, view) => {
     <div
       class="p-4 bg-white flex justify-between items-center gap-4 rounded-2xl"
     >
-      <h2 class="mulish font-semibold text-base md:text-sm text-black">
+      <h2 class="mulish font-semibold text-base lg:text-lg  md:text-sm text-black">
         ${title}
       </h2>
-      <div class="flex md:flex-col justify-center gap-2 items-center">
+      <div class="flex md:flex-col lg:flex-row justify-center gap-2 items-center">
         <i class="fa-regular fa-eye text-xl"></i>
         <span>${view}</span>
       </div>
@@ -189,38 +191,40 @@ const handleRead = (title, view) => {
 };
 
 searchBtn.addEventListener("click", async () => {
-    let value = inputField.value;
-    console.log(value);
+  let value = inputField.value;
+  console.log(value);
 
-    const elementByCategory = async (value = "categoryName") => {
-            isLoading = true;
-            allPostLoader.classList.remove("hidden");
-            allPostArea.classList.add('hidden')
-            allPostDiv.innerHTML = ''
-            
-            const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${value}`);
-            const data = await res.json();
-    
-            console.log(data.posts);
-            const allPosts = data.posts;
-        
-            if(allPosts.length>0){
-                allPosts.forEach((post) => {
-                    console.log(post)
-              const {
-                category,
-                image,
-                title,
-                isActive,
-                description,
-                comment_count,
-                view_count,
-                posted_time,
-              } = post;
-              const { name } = post.author;
-        
-              const div = document.createElement("div");
-              div.innerHTML = `
+  const elementByCategory = async (value = "categoryName") => {
+    isLoading = true;
+    allPostLoader.classList.remove("hidden");
+    allPostArea.classList.add("hidden");
+    allPostDiv.innerHTML = "";
+
+    const res = await fetch(
+      `https://openapi.programming-hero.com/api/retro-forum/posts?category=${value}`
+    );
+    const data = await res.json();
+
+    console.log(data.posts);
+    const allPosts = data.posts;
+
+    if (allPosts.length > 0) {
+      allPosts.forEach((post) => {
+        console.log(post);
+        const {
+          category,
+          image,
+          title,
+          isActive,
+          description,
+          comment_count,
+          view_count,
+          posted_time,
+        } = post;
+        const { name } = post.author;
+
+        const div = document.createElement("div");
+        div.innerHTML = `
               <div
               class="bg-[#F3F3F5] p-5 md:p-8 lg:p-10 rounded-3xl md:flex lg:flex justify-start items-start gap-8 hover:bg-[#797DFC1A] hover:border-[#797DFC] mb-5 hover:border"
               >
@@ -267,27 +271,36 @@ searchBtn.addEventListener("click", async () => {
                   </div>
               </div>
               `;
-            //   allPostDiv.appendChild(div);
+        //   allPostDiv.appendChild(div);
 
-            allPostDiv.appendChild(div);
-            });
-            }else{
-                allPostArea.innerText = "No posts found!!!"
-            }
-        
-            setTimeout(() => {
-              isLoading = false;
-              allPostLoader.classList.add("hidden");
-              allPostArea.classList.remove('hidden')
-            }, 2000);
-          
+        allPostDiv.appendChild(div);
+      });
+    } else {
+        const rightSide = document.getElementById("rightSide")
+        rightSide.classList.add('hidden')
+        const noPost = document.createElement("div");
+        noPost.classList = "w-full col-span-5 mx-auto"
+      noPost.innerHTML = `
+                <div class="w-full h-[300px] flex justify-center items-center">
+                <img class="w--[300px] h-full" src="images/nodata.png" alt="">
+                <h2 class="text-5xl mulish text-error font-black text-center ">No posts found!!!</h2>
+              </div>
+                `;
 
-    };
+                allPostDiv.appendChild(noPost)
 
-    await elementByCategory(value || "categoryName");
+
+    }
+
+    setTimeout(() => {
+      isLoading = false;
+      allPostLoader.classList.add("hidden");
+      allPostArea.classList.remove("hidden");
+    }, 2000);
+  };
+
+  await elementByCategory(value || "categoryName");
 });
-
-
 
 latestPost();
 loadPost();

@@ -171,19 +171,19 @@
               <p class="mulish font-semibold text-black text-2xl">
                 Registered Users
               </p>
-              <p class="mulish font-semibold text-black text-2xl">01</p>
-            </li>
-            <li class="list-none flex justify-between items-center">
-              <p class="mulish font-semibold text-black text-2xl">Forum</p>
               <p class="mulish font-semibold text-black text-2xl">05</p>
             </li>
             <li class="list-none flex justify-between items-center">
+              <p class="mulish font-semibold text-black text-2xl">Forum</p>
+              <p class="mulish font-semibold text-black text-2xl">06</p>
+            </li>
+            <li class="list-none flex justify-between items-center">
               <p class="mulish font-semibold text-black text-2xl">Topics</p>
-              <p class="mulish font-semibold text-black text-2xl">01</p>
+              <p class="mulish font-semibold text-black text-2xl">03</p>
             </li>
             <li class="list-none flex justify-between items-center">
               <p class="mulish font-semibold text-black text-2xl">Replies</p>
-              <p class="mulish font-semibold text-black text-2xl">01</p>
+              <p class="mulish font-semibold text-black text-2xl">599</p>
             </li>
           </div>
         </div>
@@ -191,7 +191,7 @@
     </header>
 
     <!-- main & area -->
-    <main class="lg:mx-28  mt-12 lg:mt-24">
+    <main class="lg:mx-28 mt-12 lg:mt-24">
       <!-- lets discuss section -->
       <section>
         <div class="text-center mb-4 lg:mb-12">
@@ -204,15 +204,20 @@
           </p>
         </div>
         <div id="allPostLoader" class="hidden text-center">
-          <span class="loading loading-dots loading-lg"></span>
+          <span class="loading loading-infinity loading-lg  text-success"></span>
         </div>
-        <section id="allPostArea" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 w-full md:gap-2 gap-6">
+        <section
+          id="allPostArea"
+          class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 w-full md:gap-2 gap-6"
+        >
           <!-- left side -->
-          <section id="allPostSection" class="lg:col-span-3 md:col-span-2 text-center">
-          </section>
+          <section
+            id="allPostSection"
+            class="lg:col-span-3 md:col-span-2 text-center"
+          ></section>
 
           <!-- right side -->
-          <section class="lg:col-span-2 md:col-span-1 space-y-5">
+          <section id="rightSide" class="lg:col-span-2 md:col-span-1 space-y-5">
             <div class="bg-[#12132D0D] rounded-3xl p-3 lg:p-6">
               <div class="flex justify-between items-center mb-4">
                 <h2 class="mulish text-xl font-bold text-black">Title</h2>
@@ -221,9 +226,7 @@
                   (<span id="readCount">0</span>)
                 </h2>
               </div>
-            <div id="titleContainer" class="space-y-5">
-
-            </div>
+              <div id="titleContainer" class="space-y-5"></div>
             </div>
           </section>
         </section>
@@ -267,10 +270,11 @@
         <div id="CardLoader" class="hidden text-center">
           <span class="loading loading-dots loading-lg text-green-500"></span>
         </div>
-        <section id="cardSection" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-
+        <section
+          id="cardSection"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+        >
           <!-- card div -->
-         
         </section>
       </section>
 
