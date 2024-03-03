@@ -63,8 +63,8 @@ const loadPost = async () => {
                 <h2 class="mulish font-bold text-xl md:text-start text-black">${title}</h2>
                 <p class="inter text-base font-normal md:text-start">${description}</p>
                 <div class="border-t-4 border-dashed"></div>
-                <div class="lg:flex md:flex justify-between items-center">
-                    <div class="lg:flex md:flex lg:justify-center gap-5 items-center">
+                <div class=" lg:flex md:flex justify-between items-center">
+                    <div class="lg:flex flex md:flex lg:justify-center gap-5 items-center">
                     <div class="flex lg:justify-center items-center gap-2">
                         <i class="fa-regular fa-message text-xl"></i>
                         <span class="text-xl">${comment_count}</span>
@@ -173,12 +173,12 @@ const handleRead = (title, view) => {
   titleElement.innerHTML = `
     <div class="space-y-4">
     <div
-      class="p-4 bg-white flex justify-between items-center gap-4 rounded-2xl"
+      class="p-2 md:p-4 lg:p-4 bg-white flex justify-between items-center gap-4 rounded-2xl"
     >
       <h2 class="mulish font-semibold text-base lg:text-lg  md:text-sm text-black">
         ${title}
       </h2>
-      <div class="flex md:flex-col lg:flex-row justify-center gap-2 items-center">
+      <div class="flex md:flex-col lg:flex-row justify-center gap-1 lg:gap-2 md:gap-2 items-center">
         <i class="fa-regular fa-eye text-xl"></i>
         <span>${view}</span>
       </div>
