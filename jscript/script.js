@@ -28,7 +28,6 @@ const loadPost = async () => {
     );
     const data = await res.json();
     const allPosts = data.posts;
-    console.log(allPosts);
 
     allPosts.forEach((post) => {
       const {
@@ -111,7 +110,6 @@ const latestPost = async () => {
     "https://openapi.programming-hero.com/api/retro-forum/latest-posts"
   );
   const latestData = await response.json();
-  console.log(latestData);
   isLoading = true;
   cardLoader.classList.remove("hidden");
   cardSection.classList.add("hidden");
@@ -192,8 +190,11 @@ const handleRead = (title, view) => {
 
 searchBtn.addEventListener("click", async () => {
   let value = inputField.value;
-  console.log(value);
-
+  if(value === ""){
+    alert("Please Fill the input Field")
+    return;
+  }
+  
   const elementByCategory = async (value = "categoryName") => {
     isLoading = true;
     allPostLoader.classList.remove("hidden");
@@ -296,6 +297,7 @@ searchBtn.addEventListener("click", async () => {
       isLoading = false;
       allPostLoader.classList.add("hidden");
       allPostArea.classList.remove("hidden");
+      value = ""
     }, 2000);
   };
 
