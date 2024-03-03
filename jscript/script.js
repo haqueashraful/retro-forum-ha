@@ -5,6 +5,8 @@ let allPostDiv = document.getElementById("allPostSection");
 const allPostLoader = document.getElementById("allPostLoader");
 const allPostArea = document.getElementById("allPostArea");
 const rightSide = document.getElementById("rightSide")
+const noPost = document.getElementById("noPost");
+
 
 // latest post section variable
 const cardSection = document.getElementById("cardSection");
@@ -64,8 +66,8 @@ const loadPost = async () => {
                 <h2 class="mulish font-bold text-xl md:text-start text-black">${title}</h2>
                 <p class="inter text-base font-normal md:text-start">${description}</p>
                 <div class="border-t-4 border-dashed"></div>
-                <div class=" lg:flex md:flex justify-between items-center">
-                    <div class="lg:flex flex md:flex lg:justify-center gap-5 items-center">
+                <div class=" lg:flex md:flex flex justify-between items-center">
+                    <div class="lg:flex md:flex lg:justify-center gap-5 items-center">
                     <div class="flex lg:justify-center items-center gap-2">
                         <i class="fa-regular fa-message text-xl"></i>
                         <span class="text-xl">${comment_count}</span>
@@ -194,12 +196,20 @@ searchBtn.addEventListener("click", async () => {
   if(value === ""){
     alert("Please Fill the input Field")
     return;
+  }else if(value === "all" || value === "ALL"){
+    
+    noPost.classList.add("hidden")
+    allPostArea.classList.remove("hidden")
+    rightSide.classList.remove('hidden')
+    loadPost()
+    return
   }
   
-  const elementByCategory = async (value = "categoryName") => {
+  const elementByCategory = async (value) => {
     isLoading = true;
     allPostLoader.classList.remove("hidden");
     allPostArea.classList.add("hidden");
+    noPost.classList.add('hidden')
     allPostDiv.innerHTML = "";
 
     const res = await fetch(
@@ -279,17 +289,11 @@ searchBtn.addEventListener("click", async () => {
         allPostDiv.appendChild(div);
       });
     } else {
-        rightSide.classList.add('hidden')
-        const noPost = document.createElement("div");
-        noPost.classList = "w-full col-span-5 mx-auto"
-      noPost.innerHTML = `
-                <div class="w-full h-[300px] flex justify-center items-center">
-                <img class="w--[300px] h-full" src="images/nodata.png" alt="">
-                <h2 class="text-5xl mulish text-error font-black text-center ">No posts found!!!</h2>
-              </div>
-                `;
-
-                allPostDiv.appendChild(noPost)
+      setTimeout(() => {
+      noPost.classList.remove("hidden")
+      allPostArea.classList.add("hidden")
+      rightSide.classList.add('hidden')
+      }, 2000);
     }
 
     setTimeout(() => {
@@ -299,7 +303,7 @@ searchBtn.addEventListener("click", async () => {
     }, 2000);
   };
 
-  await elementByCategory(value || "categoryName");
+  await elementByCategory(value);
 });
 
 latestPost();

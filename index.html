@@ -78,7 +78,7 @@
                 </li>
               </ul>
             </div>
-            <h2 href="#" class="mulish text-4xl font-black">Social<span class="text-[#797DFC]">P</span></h2>
+            <h2 href="#" class="mulish md:text-3xl text-2xl lg:text-4xl font-black">Social<span class="text-[#797DFC]">P</span></h2>
             <!-- <a class=""><img src="images/logo.png" alt="" /></a> -->
           </div>
           <div class="navbar-end">
@@ -133,7 +133,7 @@
       <!-- banner section -->
       <section>
         <div
-          class="bg-[#12132D] bg-[url('images/bgbanner.png')] bg-cover lg:bg-contain bg-no-repeat w-full bg-bottom p-3 md:p-10 lg:p-20 rounded-[32px] lg:rounded-3xl lg:flex md:flex justify-center gap-20 items-center"
+          class="bg-[#12132D] bg-[url('images/bgbanner.png')] bg-cover lg:bg-contain bg-no-repeat w-full bg-bottom p-3 md:p-10 lg:p-20 rounded-xl lg:rounded-[32px] md:rounded-3xl lg:flex md:flex justify-center gap-20 items-center"
         >
           <div class="space-y-2 lg:space-y-8 lg:w-1/2 w-full">
             <h2
@@ -156,7 +156,7 @@
                 id="inputField"
                 type="text"
                 class="grow lg:py-5 lg:pl-2"
-                placeholder="Search"
+                placeholder="Search by category"
               />
               <button
                 id="searchBtn"
@@ -208,6 +208,18 @@
         <div id="allPostLoader" class="hidden text-center">
           <span class="loading loading-infinity loading-lg  text-success"></span>
         </div>
+
+
+
+        <section id="noPost" class="w-full mx-auto hidden mt-10 md:mt-0 lg:mt-0">
+          <div class="w-full h-[300px] md:flex lg:flex flex flex-col-reverse lg:flex-row md:flex-row justify-center items-center">
+            <img class="w--[300px] h-full" src="images/nodata.png" alt="">
+            <h2 class="text-5xl mulish text-error font-black text-center ">No posts found!!!</h2>
+          </div>
+        </section>
+
+
+
         <section
           id="allPostArea"
           class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 w-full md:gap-2 lg:gap-6"
@@ -238,7 +250,7 @@
 
       <section class="lg:mt-24 mt-12">
         <div
-          class="bg-black bg-[url('images/joinforum.png')] bg-no-repeat bg-right-bottom p-8 lg:p-24 rounded-3xl"
+          class="bg-black bg-[url('images/joinforum.png')] bg-no-repeat bg-right-bottom p-8 lg:p-24 md:p-24 rounded-xl lg:rounded-[32px] md:rounded-3xl"
         >
           <h2 class="mulish font-black text-4xl text-white">Join Our Forum</h2>
           <p class="mulish font-medium text-base md:text-lg  lg:text-xl  text-[#FFFFFFCC] mt-4 mb-8">
@@ -295,10 +307,10 @@
           in a piece of classical Latin literature from 45 BC
         </p>
         <div class="flex gap-5 justify-center items-center">
-          <i class="fa-brands fa-twitter text-3xl"></i>
-          <i class="fa-brands fa-facebook-f text-3xl"></i>
-          <i class="fa-brands fa-instagram text-3xl"></i>
-          <i class="fa-brands fa-github text-3xl"></i>
+          <i class="fa-brands fa-twitter text-3xl hover:text-[#797DFC]"></i>
+          <i class="fa-brands fa-facebook-f text-3xl hover:text-[#797DFC]"></i>
+          <i class="fa-brands fa-instagram text-3xl hover:text-[#797DFC]"></i>
+          <i class="fa-brands fa-github text-3xl hover:text-[#797DFC]"></i>
         </div>
       </div>
       <hr class="my-12" />
