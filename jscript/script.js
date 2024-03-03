@@ -1,22 +1,27 @@
 let isLoading = true;
 let count = 0;
 // all post section variable
-const allPostDiv = document.getElementById("allPostSection");
+let allPostDiv = document.getElementById("allPostSection");
 const allPostLoader = document.getElementById("allPostLoader");
+const allPostArea = document.getElementById("allPostArea");
 
 // latest post section variable
 const cardSection = document.getElementById("cardSection");
 const cardLoader = document.getElementById("CardLoader");
 
 // title div container
-
 const titleContainer = document.getElementById("titleContainer");
+
+// input area
+const inputField = document.getElementById('inputField')
+const searchBtn = document.getElementById("searchBtn")
 
 const loadPost = async () => {
   try {
     // Display loader before fetching data
     isLoading = true;
     allPostLoader.classList.remove("hidden");
+    allPostArea.classList.add('hidden')
 
     const res = await fetch(
       "https://openapi.programming-hero.com/api/retro-forum/posts"
@@ -93,6 +98,7 @@ const loadPost = async () => {
     setTimeout(() => {
       isLoading = false;
       allPostLoader.classList.add("hidden");
+      allPostArea.classList.remove('hidden')
     }, 2000);
   } catch (error) {
     console.error("Error fetching posts:", error);
@@ -108,6 +114,7 @@ const latestPost = async () => {
   console.log(latestData);
   isLoading = true;
   cardLoader.classList.remove("hidden");
+  cardSection.classList.add('hidden')
 
   latestData.forEach((data) => {
     const { cover_image, profile_image, title, description } = data;
@@ -115,7 +122,7 @@ const latestPost = async () => {
 
     const cardDiv = document.createElement("div");
     cardDiv.innerHTML = `
-        <div class="bg-white border border-[#12132D26] rounded-3xl p-6">
+        <div class="bg-white border border-[#12132D26] rounded-3xl min-h-[460px] max-h-[564px] p-6">
         <img
           class="w-full rounded-[20px] mb-4"
           src="${cover_image}"
@@ -124,12 +131,12 @@ const latestPost = async () => {
         <div class="space-y-3">
           <div class="flex justify-start items-center">
             <i class="fa-regular fa-calendar"></i>
-            <p class="ml-2">${posted_date}</p>
+            <p class="ml-2">${posted_date && posted_date || `No publish date`}</p>
           </div>
-          <h2 class="mulish font-extrabold text-lg text-black">
+          <h2 class="mulish font-extrabold text-lg text-black min-h-[56px]">
             ${title}
           </h2>
-          <p class="mulish">
+          <p class="mulish min-h-[75px]">
             ${description}
           </p>
           <div class="flex justify-start items-center gap-5">
@@ -152,7 +159,8 @@ const latestPost = async () => {
   setTimeout(() => {
     isLoading = false;
     cardLoader.classList.add("hidden");
-  }, 1000);
+    cardSection.classList.remove('hidden')
+  }, 2000);
 };
 
 const handleRead = (title, view) => {
@@ -179,6 +187,107 @@ const handleRead = (title, view) => {
     `;
   titleContainer.appendChild(titleElement);
 };
+
+searchBtn.addEventListener("click", async () => {
+    let value = inputField.value;
+    console.log(value);
+
+    const elementByCategory = async (value = "categoryName") => {
+            isLoading = true;
+            allPostLoader.classList.remove("hidden");
+            allPostArea.classList.add('hidden')
+            allPostDiv.innerHTML = ''
+            
+            const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${value}`);
+            const data = await res.json();
+    
+            console.log(data.posts);
+            const allPosts = data.posts;
+        
+            if(allPosts.length>0){
+                allPosts.forEach((post) => {
+                    console.log(post)
+              const {
+                category,
+                image,
+                title,
+                isActive,
+                description,
+                comment_count,
+                view_count,
+                posted_time,
+              } = post;
+              const { name } = post.author;
+        
+              const div = document.createElement("div");
+              div.innerHTML = `
+                    <div
+                    class="bg-[#F3F3F5] p-5 lg:p-10 rounded-3xl lg:flex justify-start items-start gap-8 hover:bg-[#797DFC1A] hover:border-[#797DFC] mb-5 hover:border"
+                    >
+                        <div class="indicator">
+                        <span ${
+                          (isActive &&
+                            `class='indicator-item badge badge-success rounded-full'`) ||
+                          `class='indicator-item badge badge-error rounded-full'`
+                        } ></span>
+                        <img src=${image} alt="image" class="bg-white w-[75px] h-[72px] rounded-2xl">
+                        </div>
+                        <div class="space-y-5 w-full">
+                        <div class="flex justify-start items-center gap-5">
+                            <h2># <span>${category}</span></h2>
+                            <h2>Author: <span>${name}</span></h2>
+                        </div>
+                        <h2 class="mulish font-bold text-xl text-black">${title}</h2>
+                        <p class="inter text-base font-normal">${description}</p>
+                        <div class="border-t-4 border-dashed"></div>
+                        <div class="lg:flex justify-between items-center">
+                            <div class="lg:flex lg:justify-center gap-5 items-center">
+                            <div class="flex lg:justify-center items-center gap-2">
+                                <i class="fa-regular fa-message text-xl"></i>
+                                <span class="text-xl">${comment_count}</span>
+                            </div>
+                            <div class="flex lg:justify-center items-center gap-2">
+                                <i class="fa-regular fa-eye text-xl"></i>
+                                <span class="text-xl">${view_count}</span>
+                            </div>
+                            <div class="flex lg:justify-center items-center gap-2">
+                                <i class="fa-regular fa-clock text-xl"></i>
+                                <span class="text-xl">${posted_time} min</span>
+                            </div>
+                            </div>
+                            <div class="">
+                            <button onclick='handleRead("${title.replace(
+                              /'/g,
+                              "&#39;"
+                            )}", ${view_count})' class="btn rounded-full bg-green-600 flex justify-center items-center">
+                                <i class="fa-solid fa-envelope-open text-xl p-1 text-white"></i>
+                            </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    `;
+            //   allPostDiv.appendChild(div);
+
+            allPostDiv.appendChild(div);
+            });
+            }else{
+                allPostDiv.innerText = "No posts found!!!"
+            }
+        
+            setTimeout(() => {
+              isLoading = false;
+              allPostLoader.classList.add("hidden");
+              allPostArea.classList.remove('hidden')
+            }, 2000);
+          
+
+    };
+
+    await elementByCategory(value || "categoryName");
+});
+
+
 
 latestPost();
 loadPost();

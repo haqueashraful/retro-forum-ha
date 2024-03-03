@@ -151,11 +151,13 @@
               class="input input-bordered h-auto flex items-center lg:gap-2 rounded-full"
             >
               <input
+                id="inputField"
                 type="text"
                 class="grow lg:py-4 lg:px-2"
                 placeholder="Search"
               />
               <button
+                id="searchBtn"
                 class="btn lg:px-8 rounded-3xl bg-[#797DFC] flex justify-center items-center text-xl text-white"
               >
                 Search
@@ -201,12 +203,12 @@
             app. The <br />integrated testing features allow for a streamlined .
           </p>
         </div>
-        <section class="grid grid-cols-1 lg:grid-cols-5 w-full gap-6">
+        <div id="allPostLoader" class="hidden text-center">
+          <span class="loading loading-dots loading-lg"></span>
+        </div>
+        <section id="allPostArea" class="grid grid-cols-1 lg:grid-cols-5 w-full gap-6">
           <!-- left side -->
-          <section id="allPostSection" class="lg:col-span-3">
-            <div id="allPostLoader" class="hidden text-center">
-              <span class="loading loading-dots loading-lg"></span>
-            </div>
+          <section id="allPostSection" class="lg:col-span-3 text-center">
           </section>
 
           <!-- right side -->
@@ -219,7 +221,7 @@
                   (<span id="readCount">0</span>)
                 </h2>
               </div>
-            <div id="titleContainer" class=" space-y-5">
+            <div id="titleContainer" class="space-y-5">
 
             </div>
             </div>
@@ -262,10 +264,10 @@
 
         <!-- card section -->
 
+        <div id="CardLoader" class="hidden text-center">
+          <span class="loading loading-dots loading-lg text-green-500"></span>
+        </div>
         <section id="cardSection" class="grid grid-cols-1 lg:grid-cols-3 gap-5">
-          <div id="CardLoader" class="hidden text-center">
-            <span class="loading loading-dots loading-lg"></span>
-          </div>
 
           <!-- card div -->
          
