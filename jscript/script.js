@@ -297,7 +297,6 @@ searchBtn.addEventListener("click", async () => {
       isLoading = false;
       allPostLoader.classList.add("hidden");
       allPostArea.classList.remove("hidden");
-      value = ""
     }, 2000);
   };
 
