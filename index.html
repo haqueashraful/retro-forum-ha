@@ -192,104 +192,57 @@
     <main class="lg:mx-28 mt-12 lg:mt-24">
       <!-- lets discuss section -->
       <section>
-          <div class="text-center mb-4 lg:mb-12">
-            <h2 class="mulish font-black text-black text-4xl mb-6">
-              Let’s Discuss
-            </h2>
-            <p class="inter font-normal text-base">
-              Yes, you can run unit tests and view the results directly within the
-              app. The <br />integrated testing features allow for a streamlined .
-            </p>
-          </div>
-          <section class="grid grid-cols-1 lg:grid-cols-5 w-full gap-6">
-            <!-- left side -->
-            <section class="lg:col-span-3">
-              <div
-                class="bg-[#F3F3F5] p-5 lg:p-10 rounded-3xl lg:flex justify-start items-start gap-8 hover:bg-[#797DFC1A] hover:border-[#797DFC] hover:border"
-              >
-                <div class="indicator">
-                  <span
-                    class="indicator-item badge badge-success rounded-full"
-                  ></span>
-                  <div class="bg-white w-[72px] h-[72px] rounded-2xl"></div>
-                </div>
-                <div class="space-y-5">
-                  <div class="flex justify-start items-center gap-5">
-                    <h2># <span> Music</span></h2>
-                    <h2>Author: <span>NEW MEN</span></h2>
-                  </div>
-                  <h2 class="mulish font-bold text-xl text-black">
-                    10 Kids Unaware of Their Halloween Costume
-                  </h2>
-                  <p class="inter text-base font-normal">
-                    It’s one thing to subject yourself to ha Halloween costume
-                    mishap because, hey that’s your prerogative
-                  </p>
-                  <div class="border-t-4 border-dashed"></div>
-                  <div class="lg:flex justify-between items-center">
-                    <div class="lg:flex lg:justify-center gap-5 items-center">
-                      <div class="flex lg:justify-center items-center gap-2">
-                        <i class="fa-regular fa-message text-xl"></i>
-                        <span class="text-xl">01</span>
-                      </div>
-                      <div class="flex lg:justify-center items-center gap-2">
-                        <i class="fa-regular fa-eye text-xl"></i>
-                        <span class="text-xl">01555</span>
-                      </div>
-                      <div class="flex lg:justify-center items-center gap-2">
-                        <i class="fa-regular fa-clock text-xl"></i>
-                        <span class="text-xl">01 min</span>
-                      </div>
-                    </div>
-                    <div class="">
-                      <button
-                        class="btn rounded-full bg-green-600 flex justify-center items-center"
-                      >
-                        <i
-                          class="fa-solid fa-envelope-open text-xl p-1 text-white"
-                        ></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-    
-            <!-- right side -->
-            <section class="lg:col-span-2">
-              <div class="bg-[#12132D0D] rounded-3xl p-3 lg:p-6">
-                <div class="flex justify-between items-center mb-4">
-                  <h2 class="mulish text-xl font-bold text-black">Title</h2>
-                  <h2 class="inter text-[#12132D99]">
-                    <i class="fa-solid fa-check text-green-300"></i> Mark as read
-                    (<span>1</span>)
-                  </h2>
-                </div>
-                <div class="space-y-4">
-                  <div
-                    class="p-4 bg-white flex justify-between items-center gap-4 rounded-2xl"
-                  >
-                    <h2 class="mulish font-semibold text-base text-black">
-                      10 Kids Unaware of Their Halloween Costume
-                    </h2>
-                    <div class="flex justify-center gap-2 items-center">
-                      <i class="fa-regular fa-eye text-xl"></i>
-                      <span>000000</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+        <div class="text-center mb-4 lg:mb-12">
+          <h2 class="mulish font-black text-black text-4xl mb-6">
+            Let’s Discuss
+          </h2>
+          <p class="inter font-normal text-base">
+            Yes, you can run unit tests and view the results directly within the
+            app. The <br />integrated testing features allow for a streamlined .
+          </p>
+        </div>
+        <section class="grid grid-cols-1 lg:grid-cols-5 w-full gap-6">
+          <!-- left side -->
+          <section id="allPostSection" class="lg:col-span-3">
+            <div id="allPostLoader" class="hidden text-center">
+              <span class="loading loading-dots loading-lg"></span>
+            </div>
           </section>
-      </section>
 
+          <!-- right side -->
+          <section class="lg:col-span-2 space-y-5">
+            <div class="bg-[#12132D0D] rounded-3xl p-3 lg:p-6">
+              <div class="flex justify-between items-center mb-4">
+                <h2 class="mulish text-xl font-bold text-black">Title</h2>
+                <h2 class="inter text-[#12132D99]">
+                  <i class="fa-solid fa-check text-green-300"></i> Mark as read
+                  (<span id="readCount">0</span>)
+                </h2>
+              </div>
+            <div id="titleContainer" class=" space-y-5">
+
+            </div>
+            </div>
+          </section>
+        </section>
+      </section>
       <!-- join our forum section -->
 
       <section class="lg:mt-24 mt-12">
-        <div class="bg-black bg-[url('images/joinforum.png')] bg-no-repeat bg-right-bottom p-8  lg:p-24 rounded-3xl">
-            <h2 class="mulish font-black text-4xl text-white">Join Our Forum</h2>
-            <p class="mulish font-medium text-lg text-[#FFFFFFCC] mt-4 mb-8">Share your favorite opinion and win and wp forum coffee mug! Yes, you can <br> run unit tests and view the results directly within the app. </p>
-            <button class="mulish font-bold text-xl btn text-white bg-[#797DFC] border-none rounded-full">Registered Now</button>
+        <div
+          class="bg-black bg-[url('images/joinforum.png')] bg-no-repeat bg-right-bottom p-8 lg:p-24 rounded-3xl"
+        >
+          <h2 class="mulish font-black text-4xl text-white">Join Our Forum</h2>
+          <p class="mulish font-medium text-lg text-[#FFFFFFCC] mt-4 mb-8">
+            Share your favorite opinion and win and wp forum coffee mug! Yes,
+            you can <br />
+            run unit tests and view the results directly within the app.
+          </p>
+          <button
+            class="mulish font-bold text-xl btn text-white bg-[#797DFC] border-none rounded-full"
+          >
+            Registered Now
+          </button>
         </div>
       </section>
 
@@ -297,99 +250,57 @@
 
       <section class="lg:mt-24 mt-12">
         <div class="text-center mb-4 lg:mb-12">
-            <h2 class="mulish font-black text-black text-4xl mb-6">
-                Latest Posts
-            </h2>
-            <p class="inter font-normal text-base">
-                Yes, you can run unit tests and view the results directly within the app. The <br> integrated testing features allow for a streamlined .
-            </p>
+          <h2 class="mulish font-black text-black text-4xl mb-6">
+            Latest Posts
+          </h2>
+          <p class="inter font-normal text-base">
+            Yes, you can run unit tests and view the results directly within the
+            app. The <br />
+            integrated testing features allow for a streamlined .
+          </p>
+        </div>
+
+        <!-- card section -->
+
+        <section id="cardSection" class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          <div id="CardLoader" class="hidden">
+            <span class="loading loading-dots loading-lg"></span>
           </div>
 
-          <!-- card section -->
-
-          <section class="grid grid-cols-1 lg:grid-cols-3 gap-5">
-
-            <!-- card div -->
-            <div class="bg-white border border-[#12132D26] rounded-3xl p-6">
-                <img class="w-full rounded-[20px] mb-4" src="images/joinforum.png" alt="">
-                <div class="space-y-3">
-                    <div class="flex justify-start items-center">
-                        <i class="fa-regular fa-calendar"></i>
-                        <p>29 January 2024</p>
-                    </div>
-                    <h2 class="mulish font-extrabold text-lg text-black">What will a mars habitat force that impact in our daily life!!!</h2>
-                    <p class="mulish">Yes, you can run unit tests and view the results directly within the app. </p>
-                    <div class="flex justify-start items-center gap-5">
-                        <div class="w-16 h-16 rounded-full bg-black">
-                        </div>
-                        <div>
-                            <h2 class="mulish font-bold text-lg text-black">Cameron Williamson</h2>
-                            <p class="mulish text-sm">Unknown</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- card div -->
-            <div class="bg-white border border-[#12132D26] rounded-3xl p-6">
-                <img class="w-full rounded-[20px]" src="images/joinforum.png" alt="">
-                <div class="space-y-3">
-                    <div class="flex justify-start items-center">
-                        <i class="fa-regular fa-calendar"></i>
-                        <p>29 January 2024</p>
-                    </div>
-                    <h2 class="mulish font-extrabold text-lg text-black">What will a mars habitat force that impact in our daily life!!!</h2>
-                    <p class="mulish">Yes, you can run unit tests and view the results directly within the app. </p>
-                    <div class="flex justify-start items-center">
-                        <div class="w-16 h-16 rounded-full bg-black">
-                        </div>
-                        <div>
-                            <h2 class="mulish font-bold text-lg text-black">Cameron Williamson</h2>
-                            <p class="mulish text-sm">Unknown</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- card div -->
-            <div class="bg-white border border-[#12132D26] rounded-3xl p-6">
-                <img class="w-full rounded-[20px]" src="images/joinforum.png" alt="">
-                <div class="space-y-3">
-                    <div class="flex justify-start items-center">
-                        <i class="fa-regular fa-calendar"></i>
-                        <p>29 January 2024</p>
-                    </div>
-                    <h2 class="mulish font-extrabold text-lg text-black">What will a mars habitat force that impact in our daily life!!!</h2>
-                    <p class="mulish">Yes, you can run unit tests and view the results directly within the app. </p>
-                    <div class="flex justify-start items-center">
-                        <div class="w-16 h-16 rounded-full bg-black">
-                        </div>
-                        <div>
-                            <h2 class="mulish font-bold text-lg text-black">Cameron Williamson</h2>
-                            <p class="mulish text-sm">Unknown</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-          </section>
+          <!-- card div -->
+         
+        </section>
       </section>
+
+      <!-- loader section -->
+
+      <!-- <div id="loader" class="hidden">
+        <span class="loading loading-dots loading-lg"></span>
+      </div> -->
     </main>
 
     <!-- footer area  -->
-    <footer class="lg:mt-24 mt-12 bg-gradient-to-b from-[#12132d12] to-[#12132d00] py-10 lg:p-28 text-center">
-        <div class="">
-            <h2 class="mulish font-black text-4xl text-black">ReTro</h2>
-            <p class="mulish text-[#12132DB3] mt-4 mb-8">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots <br> in a piece of classical Latin literature from 45 BC</p>
-            <div class="flex gap-5 justify-center items-center">
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-facebook-f"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-github"></i>
-            </div>
+    <footer
+      class="lg:mt-24 mt-12 bg-gradient-to-b from-[#12132d12] to-[#12132d00] py-10 lg:p-28 text-center"
+    >
+      <div class="">
+        <h2 class="mulish font-black text-4xl text-black">ReTro</h2>
+        <p class="mulish text-[#12132DB3] mt-4 mb-8">
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots <br />
+          in a piece of classical Latin literature from 45 BC
+        </p>
+        <div class="flex gap-5 justify-center items-center">
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-github"></i>
         </div>
-        <hr class="my-12">
-        <div>
-            <p class="mulish font-light ">2017, All Rights Reserved.</p>
-        </div>
+      </div>
+      <hr class="my-12" />
+      <div>
+        <p class="mulish font-light">2017, All Rights Reserved.</p>
+      </div>
     </footer>
 
     <script src="jscript/script.js"></script>
