@@ -106,6 +106,8 @@ const latestPost = async () => {
   );
   const latestData = await response.json();
   console.log(latestData);
+  isLoading = true;
+  cardLoader.classList.remove("hidden");
 
   latestData.forEach((data) => {
     const { cover_image, profile_image, title, description } = data;
@@ -147,6 +149,10 @@ const latestPost = async () => {
 
     cardSection.appendChild(cardDiv);
   });
+  setTimeout(() => {
+    isLoading = false;
+    cardLoader.classList.add("hidden");
+  }, 1000);
 };
 
 const handleRead = (title, view) => {
