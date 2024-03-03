@@ -46,7 +46,7 @@ const loadPost = async () => {
       const div = document.createElement("div");
       div.innerHTML = `
             <div
-            class="bg-[#F3F3F5] p-5 md:p-8 lg:p-10 rounded-3xl md:flex lg:flex justify-start items-start gap-8 hover:bg-[#797DFC1A] hover:border-[#797DFC] mb-5 hover:border"
+            class="bg-[#F3F3F5] p-5 md:p-8 lg:p-10 rounded-3xl md:flex lg:flex justify-start items-start gap-8 shadow-lg hover:bg-[#797DFC1A] hover:border-[#797DFC] mb-5 hover:border"
             >
                 <div class="indicator">
                 <span ${
@@ -83,8 +83,8 @@ const loadPost = async () => {
                     <button onclick='handleRead("${title.replace(
                       /'/g,
                       "&#39;"
-                    )}", ${view_count})' class="btn rounded-full bg-green-600 flex justify-center items-center">
-                        <i class="fa-solid fa-envelope-open text-xl p-1 text-white"></i>
+                    )}", ${view_count})' class="btn rounded-full bg-green-600 hover:bg-[#797DFC]  flex justify-center items-center">
+                        <i class="fa-solid fa-envelope-open text-xl p-1 text-white "></i>
                     </button>
                     </div>
                 </div>
@@ -121,7 +121,7 @@ const latestPost = async () => {
 
     const cardDiv = document.createElement("div");
     cardDiv.innerHTML = `
-        <div class="bg-white border border-[#12132D26] rounded-3xl min-h-[460px] max-h-[564px] p-6">
+        <div class="bg-white border border-[#12132D26] rounded-3xl min-h-[460px] max-h-[564px] p-6 shadow-lg">
         <img
           class="w-full rounded-[20px] mb-4"
           src="${cover_image}"
@@ -174,7 +174,7 @@ const handleRead = (title, view) => {
   titleElement.innerHTML = `
     <div class="space-y-4">
     <div
-      class="p-2 md:p-4 lg:p-4 bg-white flex justify-between items-center gap-4 rounded-2xl"
+      class="p-2 md:p-4 lg:p-4 bg-white flex justify-between items-center gap-4 rounded-2xl shadow-lg"
     >
       <h2 class="mulish font-semibold text-base lg:text-lg  md:text-sm text-black">
         ${title}
@@ -229,7 +229,7 @@ searchBtn.addEventListener("click", async () => {
         const div = document.createElement("div");
         div.innerHTML = `
               <div
-              class="bg-[#F3F3F5] p-5 md:p-8 lg:p-10 rounded-3xl md:flex lg:flex justify-start items-start gap-8 hover:bg-[#797DFC1A] hover:border-[#797DFC] mb-5 hover:border"
+              class="bg-[#F3F3F5] p-5 md:p-8 lg:p-10 rounded-3xl md:flex lg:flex justify-start items-start gap-8 shadow-lg hover:bg-[#797DFC1A] hover:border-[#797DFC] mb-5 hover:border"
               >
                   <div class="indicator">
                   <span ${
