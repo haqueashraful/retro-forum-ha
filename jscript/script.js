@@ -125,7 +125,7 @@ const latestPost = async () => {
     cardDiv.innerHTML = `
         <div class="bg-white border border-[#12132D26] rounded-2xl min-h-[460px] max-h-[564px] p-6 shadow-xl">
         <img
-          class="w-full rounded-[20px] mb-4"
+          class="w-full rounded-2xl lg:rounded-[20px] md:rounded-[20px] mb-4"
           src="${cover_image}"
           alt=""
         />
