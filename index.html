@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Social Portal</title>
 
@@ -36,9 +36,9 @@
       }
     </style>
   </head>
-  <body class="container mx-auto box-border">
+  <body class="container mx-auto">
     <!-- header area -->
-    <header class="lg:mx-28">
+    <header class="lg:mx-20 md:mx-2 mx-1">
       <!-- nav section  -->
       <nav class="py-4 lg:py-8">
         <div class="navbar bg-base-100">
@@ -78,7 +78,12 @@
                 </li>
               </ul>
             </div>
-            <h2 href="#" class="mulish md:text-3xl text-2xl lg:text-4xl font-black">Social<span class="text-[#797DFC]">P</span></h2>
+            <h2
+              href="#"
+              class="mulish md:text-3xl text-2xl lg:text-4xl font-black"
+            >
+              Social<span class="text-[#797DFC]">P</span>
+            </h2>
             <!-- <a class=""><img src="images/logo.png" alt="" /></a> -->
           </div>
           <div class="navbar-end">
@@ -160,7 +165,7 @@
               />
               <button
                 id="searchBtn"
-                class="btn lg:px-8 rounded-3xl bg-[#797DFC] flex justify-center items-center text-xl text-white hover:bg-white hover:text-[#797DFC]"
+                class="btn lg:px-8 md:px-4 md:py-0 rounded-3xl bg-[#797DFC] flex justify-center items-center md:text-lg lg:text-xl text-white hover:bg-white hover:text-[#797DFC]"
               >
                 Search
               </button>
@@ -193,32 +198,35 @@
     </header>
 
     <!-- main & area -->
-    <main class="lg:mx-28 mt-12 lg:mt-24">
+    <main class="lg:mx-20 md:mx-2 mx-1 mt-12 lg:mt-24">
       <!-- lets discuss section -->
       <section>
         <div class="text-center mb-4 lg:mb-12">
           <h2 class="mulish font-black text-black text-4xl mb-6">
             Let’s Discuss
           </h2>
-          <p class="inter font-normal text-base md:text-lg  lg:text-xl ">
+          <p class="inter font-normal text-base md:text-lg lg:text-xl">
             Yes, you can run unit tests and view the results directly within the
             app. The <br />integrated testing features allow for a streamlined .
           </p>
         </div>
         <div id="allPostLoader" class="hidden text-center">
-          <span class="loading loading-infinity loading-lg  text-success"></span>
+          <span class="loading loading-infinity loading-lg text-success"></span>
         </div>
 
-
-
-        <section id="noPost" class="w-full mx-auto hidden mt-10 md:mt-0 lg:mt-0">
-          <div class="w-full h-[300px] md:flex lg:flex flex flex-col-reverse lg:flex-row md:flex-row justify-center items-center">
-            <img class="w--[300px] h-full" src="images/nodata.png" alt="">
-            <h2 class="text-5xl mulish text-error font-black text-center ">No posts found!!!</h2>
+        <section
+          id="noPost"
+          class="w-full mx-auto hidden mt-10 md:mt-0 lg:mt-0"
+        >
+          <div
+            class="w-full h-[300px] md:flex lg:flex flex flex-col-reverse lg:flex-row md:flex-row justify-center items-center"
+          >
+            <img class="w--[300px] h-full" src="images/nodata.png" alt="" />
+            <h2 class="text-5xl mulish text-error font-black text-center">
+              No posts found!!!
+            </h2>
           </div>
         </section>
-
-
 
         <section
           id="allPostArea"
@@ -232,7 +240,7 @@
 
           <!-- right side -->
           <section id="rightSide" class="lg:col-span-2 md:col-span-1 space-y-5">
-            <div class="bg-[#12132D0D] rounded-3xl p-3 lg:p-6">
+            <div class="bg-[#12132D0D] rounded-xl md:rounded-2xl lg:rounded-3xl p-3 lg:p-6">
               <div class="flex justify-between items-center mb-4">
                 <h2 class="mulish text-xl font-bold text-black">Title</h2>
                 <h2 class="inter text-[#12132D99]">
@@ -240,7 +248,9 @@
                   (<span id="readCount" class="text-green-600">0</span>)
                 </h2>
               </div>
-              <div class="border-b border border-[#a2a4dd] border-dashed mb-2"></div>
+              <div
+                class="border-b border border-[#a2a4dd] border-dashed mb-2"
+              ></div>
               <div id="titleContainer" class="space-y-3"></div>
             </div>
           </section>
@@ -250,19 +260,31 @@
 
       <section class="lg:mt-24 mt-12">
         <div
-          class="bg-black bg-[url('images/joinforum.png')] bg-no-repeat bg-right-bottom p-8 lg:p-24 md:p-24 rounded-xl lg:rounded-[32px] md:rounded-3xl"
+          class="bg-black p-8 lg:p-10 md:p-10 rounded-xl lg:rounded-[32px] md:rounded-3xl"
         >
-          <h2 class="mulish font-black text-4xl text-white">Join Our Forum</h2>
-          <p class="mulish font-medium text-base md:text-lg  lg:text-xl  text-[#FFFFFFCC] mt-4 mb-8">
-            Share your favorite opinion and win and wp forum coffee mug! Yes,
-            you can <br />
-            run unit tests and view the results directly within the app.
-          </p>
-          <button
-            class="mulish font-bold text-xl btn text-white bg-[#797DFC] border-none rounded-full"
-          >
-            Registered Now
-          </button>
+          <div class="flex flex-col-reverse md:flex-row lg:flex-row justify-between items-center">
+            <div>
+              <h2 class="mulish font-black text-4xl text-white">
+                Join Our Forum
+              </h2>
+              <p
+                class="mulish font-medium text-base md:text-lg lg:text-xl text-[#FFFFFFCC] mt-4 mb-8"
+              >
+                Share your favorite opinion and win and wp forum coffee mug!
+                Yes, you can <br />
+                run unit tests and view the results directly within the app.
+              </p>
+              <button
+                class="mulish font-bold text-xl btn text-white bg-[#797DFC] border-none rounded-full"
+              >
+                Registered Now
+              </button>
+            </div>
+
+            <div>
+              <img src="images/joinforum.png" alt="">
+            </div>
+          </div>
         </div>
       </section>
 
@@ -273,7 +295,7 @@
           <h2 class="mulish font-black text-black text-4xl mb-6">
             Latest Posts
           </h2>
-          <p class="inter font-normal text-base md:text-lg  lg:text-xl ">
+          <p class="inter font-normal text-base md:text-lg lg:text-xl">
             Yes, you can run unit tests and view the results directly within the
             app. The <br />
             integrated testing features allow for a streamlined .
@@ -292,7 +314,6 @@
           <!-- card div -->
         </section>
       </section>
-
     </main>
 
     <!-- footer area  -->
@@ -300,8 +321,12 @@
       class="lg:mt-24 mt-12 bg-gradient-to-b from-[#12132d12] to-[#12132d00] py-10 lg:p-28 text-center"
     >
       <div class="">
-        <h2 href="#" class="mulish text-4xl font-black">Social<span class="text-[#797DFC]">P</span></h2>
-        <p class="mulish text-[#12132DB3] text-base md:text-lg  lg:text-xl  mt-4 mb-8">
+        <h2 href="#" class="mulish text-4xl font-black">
+          Social<span class="text-[#797DFC]">P</span>
+        </h2>
+        <p
+          class="mulish text-[#12132DB3] text-base md:text-lg lg:text-xl mt-4 mb-8"
+        >
           Contrary to popular belief, Lorem Ipsum is not simply random text. It
           has roots <br />
           in a piece of classical Latin literature from 45 BC
@@ -313,7 +338,7 @@
           <i class="fa-brands fa-github text-3xl hover:text-[#797DFC]"></i>
         </div>
       </div>
-      <hr class="my-12" />
+      <div class="my-5 md:my-12 lg:my-12 border border-b border-dashed border-[#797DFC]" > </div>
       <div>
         <p class="mulish font-light">2017, All Rights Reserved.</p>
       </div>

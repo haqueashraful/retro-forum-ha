@@ -48,7 +48,7 @@ const loadPost = async () => {
       const div = document.createElement("div");
       div.innerHTML = `
             <div
-            class="bg-[#F3F3F5] p-5 md:p-8 lg:p-10 rounded-3xl md:flex lg:flex justify-start items-start gap-8 shadow-lg hover:bg-[#797DFC1A] hover:border-[#797DFC] mb-5 hover:border"
+            class="bg-[#F3F3F5] p-5 md:p-8 lg:p-10 rounded-xl md:rounded-2xl lg:rounded-3xl md:flex lg:flex justify-start items-start gap-8 shadow-lg hover:bg-[#797DFC1A] hover:border-[#797DFC] mb-5 hover:border"
             >
                 <div class="indicator">
                 <span ${
@@ -67,18 +67,18 @@ const loadPost = async () => {
                 <p class="inter text-base font-normal md:text-start">${description}</p>
                 <div class="border-t-4 border-dashed"></div>
                 <div class=" lg:flex md:flex flex justify-between items-center">
-                    <div class="lg:flex md:flex lg:justify-center gap-5 items-center">
-                    <div class="flex lg:justify-center items-center gap-2">
-                        <i class="fa-regular fa-message text-xl"></i>
-                        <span class="text-xl">${comment_count}</span>
+                    <div class="flex lg:justify-center gap-2 md:gap-5 lg:gap-5 items-center">
+                    <div class="flex lg:justify-center items-center gap-1 md:gap-2 lg:gap-2">
+                        <i class="fa-regular fa-message lg:text-xl md:text-xl text-base"></i>
+                        <span class="lg:text-xl md:text-xl text-base">${comment_count}</span>
                     </div>
                     <div class="flex lg:justify-center items-center gap-2">
-                        <i class="fa-regular fa-eye text-xl"></i>
-                        <span class="text-xl">${view_count}</span>
+                        <i class="fa-regular fa-eye lg:text-xl md:text-xl text-base"></i>
+                        <span class="lg:text-xl md:text-xl text-base">${view_count}</span>
                     </div>
                     <div class="flex lg:justify-center items-center gap-2">
-                        <i class="fa-regular fa-clock text-xl"></i>
-                        <span class="text-xl">${posted_time} min</span>
+                        <i class="fa-regular fa-clock lg:text-xl md:text-xl text-base"></i>
+                        <span class="lg:text-xl md:text-xl text-base">${posted_time} min</span>
                     </div>
                     </div>
                     <div class="">
@@ -86,7 +86,7 @@ const loadPost = async () => {
                       /'/g,
                       "&#39;"
                     )}", ${view_count})' class="btn rounded-full bg-green-600 hover:bg-[#797DFC]  flex justify-center items-center">
-                        <i class="fa-solid fa-envelope-open text-xl p-1 text-white "></i>
+                        <i class="fa-solid fa-envelope-open text-lg md:text-xl lg:text-xl p-0 md:p-1 lg:p-1 text-white "></i>
                     </button>
                     </div>
                 </div>
@@ -123,7 +123,7 @@ const latestPost = async () => {
 
     const cardDiv = document.createElement("div");
     cardDiv.innerHTML = `
-        <div class="bg-white border border-[#12132D26] rounded-3xl min-h-[460px] max-h-[564px] p-6 shadow-lg">
+        <div class="bg-white border border-[#12132D26] rounded-2xl min-h-[460px] max-h-[564px] p-6 shadow-xl">
         <img
           class="w-full rounded-[20px] mb-4"
           src="${cover_image}"
@@ -234,12 +234,12 @@ searchBtn.addEventListener("click", async () => {
           view_count,
           posted_time,
         } = post;
-        const { name } = post.author;
+        const { name } = post?.author;
 
         const div = document.createElement("div");
         div.innerHTML = `
               <div
-              class="bg-[#F3F3F5] p-5 md:p-8 lg:p-10 rounded-3xl md:flex lg:flex justify-start items-start gap-8 shadow-lg hover:bg-[#797DFC1A] hover:border-[#797DFC] mb-5 hover:border"
+              class="bg-[#F3F3F5] p-5 md:p-8 lg:p-10  rounded-xl md:rounded-2xl lg:rounded-3xl md:flex lg:flex justify-start items-start gap-8 shadow-lg hover:bg-[#797DFC1A] hover:border-[#797DFC] mb-5 hover:border"
               >
                   <div class="indicator">
                   <span ${
