@@ -21,7 +21,6 @@ const searchBtn = document.getElementById("searchBtn");
 
 const loadPost = async () => {
   try {
-    // Display loader before fetching data
     isLoading = true;
     allPostLoader.classList.remove("hidden");
     allPostArea.classList.add("hidden");
@@ -96,7 +95,6 @@ const loadPost = async () => {
       allPostDiv.appendChild(div);
     });
 
-    // Hide loader after data fetching is completed
     setTimeout(() => {
       isLoading = false;
       allPostLoader.classList.add("hidden");
@@ -104,7 +102,6 @@ const loadPost = async () => {
     }, 2000);
   } catch (error) {
     console.error("Error fetching posts:", error);
-    // Handle error (e.g., display an error message)
   }
 };
 
