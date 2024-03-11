@@ -23,7 +23,7 @@ const searchBtn = document.getElementById("searchBtn");
 const loadPost = async (value) => {
   let api;
   try {
-    if (value === "") {
+    if (value === "" || value === "all" || value === "ALL") {
       api = "https://openapi.programming-hero.com/api/retro-forum/posts";
     } else {
       api = `https://openapi.programming-hero.com/api/retro-forum/posts?category=${value}`;
