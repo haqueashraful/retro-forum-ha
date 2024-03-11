@@ -38,7 +38,7 @@ const loadPost = async (value) => {
 
     allPostDiv.innerHTML = "";
 
-    allPosts.forEach((post, index) => {
+    allPosts.forEach((post) => {
       const {
         category,
         image,
@@ -91,7 +91,7 @@ const loadPost = async (value) => {
                     <button onclick='handleRead("${title.replace(
                       /'/g,
                       "&#39;"
-                    )}", ${view_count}, ${index})' class="btn rounded-full bg-green-600 hover:bg-[#797DFC]  flex justify-center items-center">
+                    )}", ${view_count})' class="btn rounded-full bg-green-600 hover:bg-[#797DFC]  flex justify-center items-center">
                         <i class="fa-solid fa-envelope-open text-lg md:text-xl lg:text-xl p-0 md:p-1 lg:p-1 text-white "></i>
                     </button>
                     </div>
@@ -180,7 +180,6 @@ const handleRead = (title, view) => {
       class="p-2 md:p-4 lg:p-4 bg-white flex justify-center items-center gap-4 rounded-2xl shadow-lg"
     >
     
-    <h5 class="justify-start">${readNum}</h5>
       <h2 class="mulish font-semibold text-base lg:text-lg  md:text-sm text-black">
         ${title}
       </h2>
