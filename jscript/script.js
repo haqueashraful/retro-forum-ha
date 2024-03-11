@@ -1,12 +1,13 @@
 let isLoading = true;
-let count = 0;
+const readCount = document.getElementById("readCount");
+let readNum = 0;
+readCount.innerText = readNum;
 // all post section variable
 let allPostDiv = document.getElementById("allPostSection");
 const allPostLoader = document.getElementById("allPostLoader");
 const allPostArea = document.getElementById("allPostArea");
-const rightSide = document.getElementById("rightSide")
+const rightSide = document.getElementById("rightSide");
 const noPost = document.getElementById("noPost");
-
 
 // latest post section variable
 const cardSection = document.getElementById("cardSection");
@@ -19,19 +20,25 @@ const titleContainer = document.getElementById("titleContainer");
 const inputField = document.getElementById("inputField");
 const searchBtn = document.getElementById("searchBtn");
 
-const loadPost = async () => {
+const loadPost = async (value) => {
+  let api;
   try {
+    if (value === "") {
+      api = "https://openapi.programming-hero.com/api/retro-forum/posts";
+    } else {
+      api = `https://openapi.programming-hero.com/api/retro-forum/posts?category=${value}`;
+    }
     isLoading = true;
     allPostLoader.classList.remove("hidden");
     allPostArea.classList.add("hidden");
 
-    const res = await fetch(
-      "https://openapi.programming-hero.com/api/retro-forum/posts"
-    );
+    const res = await fetch(api);
     const data = await res.json();
     const allPosts = data.posts;
 
-    allPosts.forEach((post) => {
+    allPostDiv.innerHTML = "";
+
+    allPosts.forEach((post, index) => {
       const {
         category,
         image,
@@ -84,7 +91,7 @@ const loadPost = async () => {
                     <button onclick='handleRead("${title.replace(
                       /'/g,
                       "&#39;"
-                    )}", ${view_count})' class="btn rounded-full bg-green-600 hover:bg-[#797DFC]  flex justify-center items-center">
+                    )}", ${view_count}, ${index})' class="btn rounded-full bg-green-600 hover:bg-[#797DFC]  flex justify-center items-center">
                         <i class="fa-solid fa-envelope-open text-lg md:text-xl lg:text-xl p-0 md:p-1 lg:p-1 text-white "></i>
                     </button>
                     </div>
@@ -164,17 +171,16 @@ const latestPost = async () => {
 };
 
 const handleRead = (title, view) => {
-  console.log(title, view);
-  count += 1;
-  const readCount = document.getElementById("readCount");
-  readCount.innerText = count;
-
+  readNum += 1;
+  readCount.innerText = readNum;
   const titleElement = document.createElement("div");
   titleElement.innerHTML = `
     <div class="space-y-4">
     <div
-      class="p-2 md:p-4 lg:p-4 bg-white flex justify-between items-center gap-4 rounded-2xl shadow-lg"
+      class="p-2 md:p-4 lg:p-4 bg-white flex justify-center items-center gap-4 rounded-2xl shadow-lg"
     >
+    
+    <h5 class="justify-start">${readNum}</h5>
       <h2 class="mulish font-semibold text-base lg:text-lg  md:text-sm text-black">
         ${title}
       </h2>
@@ -182,126 +188,37 @@ const handleRead = (title, view) => {
         <i class="fa-regular fa-eye text-xl"></i>
         <span>${view}</span>
       </div>
+      <div onclick='removeItem(this.parentNode.parentNode)'>
+      <i class="fa-regular fa-trash-can text-red-500"></i>
+      </div>
     </div>
   </div>
     `;
   titleContainer.appendChild(titleElement);
 };
 
-searchBtn.addEventListener("click", async () => {
+const removeItem = (element) => {
+  readNum -= 1;
+  readCount.innerText = readNum;
+
+  element.parentNode.removeChild(element);
+};
+
+searchBtn.addEventListener("click", () => {
   let value = inputField.value;
-  if(value === ""){
-    alert("Please Fill the input Field")
+  if (value === "") {
+    alert("Please Fill the input Field");
     return;
-  }else if(value === "all" || value === "ALL"){
-    
-    noPost.classList.add("hidden")
-    allPostArea.classList.remove("hidden")
-    rightSide.classList.remove('hidden')
-    loadPost()
-    return
+  } else if (value === "all" || value === "ALL" || !value === "") {
+    noPost.classList.add("hidden");
+    allPostArea.classList.remove("hidden");
+    rightSide.classList.remove("hidden");
+    loadPost(value);
+    return;
+  } else {
+    loadPost(value);
   }
-  
-  const elementByCategory = async (value) => {
-    isLoading = true;
-    allPostLoader.classList.remove("hidden");
-    allPostArea.classList.add("hidden");
-    noPost.classList.add('hidden')
-    allPostDiv.innerHTML = "";
-
-    const res = await fetch(
-      `https://openapi.programming-hero.com/api/retro-forum/posts?category=${value}`
-    );
-    const data = await res.json();
-
-    console.log(data.posts);
-    const allPosts = data.posts;
-    rightSide.classList.remove("hidden")
-
-    if (allPosts.length > 0) {
-      allPosts.forEach((post) => {
-        console.log(post);
-        const {
-          category,
-          image,
-          title,
-          isActive,
-          description,
-          comment_count,
-          view_count,
-          posted_time,
-        } = post;
-        const { name } = post?.author;
-
-        const div = document.createElement("div");
-        div.innerHTML = `
-              <div
-              class="bg-[#F3F3F5] p-5 md:p-8 lg:p-10  rounded-xl md:rounded-2xl lg:rounded-3xl md:flex lg:flex justify-start items-start gap-8 shadow-lg hover:bg-[#797DFC1A] hover:border-[#797DFC] mb-5 hover:border"
-              >
-                  <div class="indicator">
-                  <span ${
-                    (isActive &&
-                      `class='indicator-item badge badge-success rounded-full'`) ||
-                    `class='indicator-item badge badge-error rounded-full'`
-                  } ></span>
-                  <img src=${image} alt="image" class="bg-white w-[75px] h-[72px] rounded-2xl">
-                  </div>
-                  <div class="space-y-5 w-full">
-                  <div class="flex justify-start items-center gap-5">
-                      <h2># <span>${category}</span></h2>
-                      <h2>Author: <span>${name}</span></h2>
-                  </div>
-                  <h2 class="mulish font-bold text-xl md:text-start text-black">${title}</h2>
-                  <p class="inter text-base font-normal md:text-start">${description}</p>
-                  <div class="border-t-4 border-dashed"></div>
-                  <div class="lg:flex md:flex justify-between items-center">
-                      <div class="lg:flex md:flex lg:justify-center gap-5 items-center">
-                      <div class="flex lg:justify-center items-center gap-2">
-                          <i class="fa-regular fa-message text-xl"></i>
-                          <span class="text-xl">${comment_count}</span>
-                      </div>
-                      <div class="flex lg:justify-center items-center gap-2">
-                          <i class="fa-regular fa-eye text-xl"></i>
-                          <span class="text-xl">${view_count}</span>
-                      </div>
-                      <div class="flex lg:justify-center items-center gap-2">
-                          <i class="fa-regular fa-clock text-xl"></i>
-                          <span class="text-xl">${posted_time} min</span>
-                      </div>
-                      </div>
-                      <div class="">
-                      <button onclick='handleRead("${title.replace(
-                        /'/g,
-                        "&#39;"
-                      )}", ${view_count})' class="btn rounded-full bg-green-600 flex justify-center items-center">
-                          <i class="fa-solid fa-envelope-open text-xl p-1 text-white"></i>
-                      </button>
-                      </div>
-                  </div>
-                  </div>
-              </div>
-              `;
-        //   allPostDiv.appendChild(div);
-
-        allPostDiv.appendChild(div);
-      });
-    } else {
-      setTimeout(() => {
-      noPost.classList.remove("hidden")
-      allPostArea.classList.add("hidden")
-      rightSide.classList.add('hidden')
-      }, 2000);
-    }
-
-    setTimeout(() => {
-      isLoading = false;
-      allPostLoader.classList.add("hidden");
-      allPostArea.classList.remove("hidden");
-    }, 2000);
-  };
-
-  await elementByCategory(value);
 });
 
 latestPost();
-loadPost();
+loadPost("");
